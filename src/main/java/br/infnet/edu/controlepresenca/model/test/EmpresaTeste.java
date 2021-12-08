@@ -1,20 +1,33 @@
 package br.infnet.edu.controlepresenca.model.test;
 
+import br.infnet.edu.controlepresenca.exceptions.CpnjInvalidoException;
+import br.infnet.edu.controlepresenca.exceptions.EventoInvalidoException;
+import br.infnet.edu.controlepresenca.exceptions.NomeInvalidoException;
 import br.infnet.edu.controlepresenca.model.domain.Empresa;
-import br.infnet.edu.controlepresenca.model.domain.Evento;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class EmpresaTeste {
     public static void main(String[] args) {
-        List<Empresa> listaDeEmpresas = new ArrayList<Empresa>();
 
-        Empresa teste1 = new Empresa("JavaDay", "1234567890909", null);
+        // Testando exceção de nome inválido
+        try {
+            Empresa teste1 = new Empresa(null, "1234567890909", null);
+        } catch (NomeInvalidoException | CpnjInvalidoException | EventoInvalidoException e) {
+            e.printStackTrace();
+        }
 
-        listaDeEmpresas.add(teste1);
+        // Testando exceção de CPNJ inválido
+        try {
+            Empresa teste1 = new Empresa("JavaDay", null, null);
+        } catch (NomeInvalidoException | CpnjInvalidoException | EventoInvalidoException e) {
+            e.printStackTrace();
+        }
 
-        System.out.println(listaDeEmpresas);
+        // Testando exceção de evento inválido
+        try {
+            Empresa teste1 = new Empresa("JavaDay", "1234567890909", null);
+        } catch (NomeInvalidoException | CpnjInvalidoException | EventoInvalidoException e) {
+            e.printStackTrace();
+        }
 
     }
 }
