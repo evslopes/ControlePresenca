@@ -72,7 +72,7 @@ public class Evento {
         sb.append(";");
         sb.append(participantes.size());
         sb.append(";");
-        sb.append(palestras.size());
+//        sb.append(palestras.size());
         sb.append("\r\n");
 
         return sb.toString();

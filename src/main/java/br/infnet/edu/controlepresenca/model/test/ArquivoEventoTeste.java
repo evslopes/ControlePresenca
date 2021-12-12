@@ -24,8 +24,11 @@ public class ArquivoEventoTeste {
             String[] campos = null;
 
             List<Participante> participantes = new ArrayList<Participante>();
+//            List<Palestra> palestras = new ArrayList<Palestra>();
 
-            Evento evento = null;
+            Evento evento = new Evento();
+            evento.setNome("Assessment Fundamentos de desenvolvimento JAVA");
+            evento.setDataInicio(LocalDateTime.now());
 
             while (linha != null){
                 campos = linha.split(";");
@@ -36,7 +39,8 @@ public class ArquivoEventoTeste {
                     case "I":
                         Organizador organizador = null;
                         try {
-                            organizador = new Organizador("Elvis", "elvis.at@teste.com", "(21)91234-1234");
+                            organizador = new Organizador(campos[1], campos[2],campos[3]);
+                            participantes.add(organizador);
                         } catch (NomeInvalidoException | EmailInvalidoException | TelefoneInvalidoException e) {
                             System.out.println(e.getMessage());
                         }
@@ -44,7 +48,8 @@ public class ArquivoEventoTeste {
                     case "II":
                         Palestrante palestrante = null;
                         try {
-                            palestrante = new Palestrante("Elbert", "elbeth.prof@teste.com", "(21)945678-4567", "Fundamentos de Java");
+                            palestrante = new Palestrante(campos[1], campos[2],campos[3],campos[4]);
+                            participantes.add(palestrante);
                         } catch (NomeInvalidoException | EmailInvalidoException | TelefoneInvalidoException e) {
                             System.out.println(e.getMessage());
                         }
@@ -53,18 +58,20 @@ public class ArquivoEventoTeste {
                         Ouvinte ouvinte = null;
                         try {
                             ouvinte = new Ouvinte("Luana", "Luana.al@teste.com", "(21)99111-1111", "Aprender Java");
+                            participantes.add(ouvinte);
                         } catch (NomeInvalidoException | EmailInvalidoException | TelefoneInvalidoException e) {
                             System.out.println(e.getMessage());
                         }
                         break;
-                    case "IV":
-                        Palestra palestra = null;
-                        try {
-                            palestra = new Palestra("FDJ", "Desenvolvimento JAVA", LocalDateTime.now(), LocalDateTime.now().plusHours(2));
-                        } catch (NomeInvalidoException e) {
-                            System.out.println(e.getMessage());
-                        }
-                        break;
+//                    case "IV":
+//                        Palestra palestra = null;
+//                        try {
+//                            palestra = new Palestra(campos[1], campos[2],LocalDateTime.parse(campos[3]),LocalDateTime.parse(campos[4]));
+//                            palestras.add(palestra);
+//                        } catch (NomeInvalidoException e) {
+//                            System.out.println(e.getMessage());
+//                        }
+//                        break;
                     default:
                         System.out.println("Tipo inváliado: " + tipo);
                         break;
@@ -72,11 +79,13 @@ public class ArquivoEventoTeste {
                     linha = leitura.readLine();
                 }
             try {
+                evento.setParticipantes(participantes);
                 evento.impressaoParticipantes();
-                evento.impressaoPalestras();
+//                evento.setPalestras(palestras);
+//                evento.impressaoPalestras();
 
                 escrita.write(evento.obterLinhaGravacaoArquivo());
-            } catch (EventoSemParticipantesException | EventoSemPalestrasException e) {
+            } catch (EventoSemParticipantesException  e) {
                 System.out.println(e.getMessage());
             }
 
