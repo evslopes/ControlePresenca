@@ -57,7 +57,7 @@ public class ArquivoEventoTeste {
                     case "III":
                         Ouvinte ouvinte = null;
                         try {
-                            ouvinte = new Ouvinte("Luana", "Luana.al@teste.com", "(21)99111-1111", "Aprender Java");
+                            ouvinte = new Ouvinte(campos[1], campos[2],campos[3],campos[4]);
                             participantes.add(ouvinte);
                         } catch (NomeInvalidoException | EmailInvalidoException | TelefoneInvalidoException e) {
                             System.out.println(e.getMessage());

@@ -13,4 +13,4 @@ Um EVENTO é feito por uma EMPRESA e possui vários PARTICIPANTES, tipo: diverso
 
 Aplicação em execução: leitura de arquivo com 7 entradas, 6 válidas e 1 inválida conforme arquivos participantes.txt e outparticipantes.txt 
 
-![img.png](img.png)
+![img_1.png](src/main/resources/static/execucaoDaAplicacao.png)
