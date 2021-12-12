@@ -1,5 +1,8 @@
 package br.infnet.edu.controlepresenca.model.domain;
 
+import br.infnet.edu.controlepresenca.exceptions.EventoSemPalestrasException;
+import br.infnet.edu.controlepresenca.exceptions.EventoSemParticipantesException;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -8,21 +11,13 @@ public class Evento {
 
     private String nome;
     private LocalDateTime dataInicio;
-    private List<Organizador> organizadores;
-    private List<Palestrante> palestrantes;
-    private List<Ouvinte> ouvintes;
+    private List<Participante> participantes;
     private List<Palestra> palestras;
 
-    public Evento(String nome,
-                  LocalDateTime dataInicio,
-                  List<Organizador> organizadores,
-                  List<Palestrante> palestrantes,
-                  List<Ouvinte> ouvintes, List<Palestra> palestras) {
+    public Evento() {
+
         this.nome = nome;
         this.dataInicio = dataInicio;
-        this.organizadores = organizadores;
-        this.palestrantes = palestrantes;
-        this.ouvintes = ouvintes;
         this.palestras = palestras;
     }
 
@@ -31,10 +26,56 @@ public class Evento {
 
         DateTimeFormatter formatacao = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
-        return String.format("%s;%s;%s;%d",
+        return String.format("%s;%s",
                 this.nome,
-                this.dataInicio.format(formatacao),
-                this.organizadores);
+                this.dataInicio.format(formatacao));
+    }
+
+    public void impressaoParticipantes()  throws EventoSemParticipantesException {
+
+        if(participantes == null) {
+            throw new EventoSemParticipantesException("Evento sem participantes!!!");
+        }
+
+        if(participantes.size() == 0) {
+            throw new EventoSemParticipantesException("Evento sem participantes!!!");
+        }
+
+        System.out.println("Relatório do Evento:");
+        System.out.println(this);
+        System.out.println("#Participantes");
+        for(Participante p : participantes) {
+            System.out.println("- " + p);
+        }
+    }
+
+    public void impressaoPalestras()  throws EventoSemPalestrasException {
+
+        if(palestras == null) {
+            throw new EventoSemPalestrasException("Evento sem palestras!!!");
+        }
+
+        if(palestras.size() == 0) {
+            throw new EventoSemPalestrasException("Evento sem palestras!!!");
+        }
+
+        System.out.println("#Palestras");
+        for(Palestra p : palestras) {
+            System.out.println("- " + p);
+        }
+    }
+
+    public String obterLinhaGravacaoArquivo() {
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(nome);
+        sb.append(";");
+        sb.append(participantes.size());
+        sb.append(";");
+        sb.append(palestras.size());
+        sb.append("\r\n");
+
+        return sb.toString();
     }
 
     public String getNome() {
@@ -53,28 +94,12 @@ public class Evento {
         this.dataInicio = dataInicio;
     }
 
-    public List<Organizador> getOrganizadores() {
-        return organizadores;
+    public List<Participante> getParticipantes() {
+        return participantes;
     }
 
-    public void setOrganizadores(List<Organizador> organizadores) {
-        this.organizadores = organizadores;
-    }
-
-    public List<Palestrante> getPalestrantes() {
-        return palestrantes;
-    }
-
-    public void setPalestrantes(List<Palestrante> palestrantes) {
-        this.palestrantes = palestrantes;
-    }
-
-    public List<Ouvinte> getOuvintes() {
-        return ouvintes;
-    }
-
-    public void setOuvintes(List<Ouvinte> ouvintes) {
-        this.ouvintes = ouvintes;
+    public void setParticipantes(List<Participante> participantes) {
+        this.participantes = participantes;
     }
 
     public List<Palestra> getPalestras() {

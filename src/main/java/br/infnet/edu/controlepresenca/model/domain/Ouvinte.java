@@ -9,24 +9,26 @@ import java.util.List;
 public class Ouvinte extends Participante{
 
     private String interesses;
-    private List<Palestra> palestrasAparticipar;
 
-    public Ouvinte(String nome, String email, String telefone, String interesses, List<Palestra> palestrasAparticipar) throws NomeInvalidoException, EmailInvalidoException, TelefoneInvalidoException {
+    public Ouvinte(String nome, String email, String telefone, String interesses) throws NomeInvalidoException, EmailInvalidoException, TelefoneInvalidoException {
         super(nome, email, telefone);
         this.interesses = interesses;
-        this.palestrasAparticipar = palestrasAparticipar;
     }
 
     @Override
     public String toString() {
-        return null;
+        return String.format("Ouvinte: %s - Interesses: %s. Contatos: %s - %s",
+                this.getNome(),
+                this.getInteresses(),
+                this.getEmail(),
+                this.getTelefone());
     }
 
-    public List<Palestra> getPalestrasAparticipar() {
-        return palestrasAparticipar;
+    public String getInteresses() {
+        return interesses;
     }
 
-    public void setPalestrasAparticipar(List<Palestra> palestrasAparticipar) {
-        this.palestrasAparticipar = palestrasAparticipar;
+    public void setInteresses(String interesses) {
+        this.interesses = interesses;
     }
 }

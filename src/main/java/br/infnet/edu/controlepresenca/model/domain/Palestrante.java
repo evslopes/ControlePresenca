@@ -6,27 +6,22 @@ import br.infnet.edu.controlepresenca.exceptions.TelefoneInvalidoException;
 
 import java.util.List;
 
-public class Palestrante extends Participante{
+public class Palestrante extends Participante {
 
     private String assuntoApalestrar;
-    private List<Palestra> palestrasAministrar;
 
-    public Palestrante(String nome, String email, String telefone, String assuntoApalestrar, List<Palestra> palestrasAministrar) throws NomeInvalidoException, EmailInvalidoException, TelefoneInvalidoException {
+    public Palestrante(String nome, String email, String telefone, String assuntoApalestrar) throws NomeInvalidoException, EmailInvalidoException, TelefoneInvalidoException {
+
         super(nome, email, telefone);
         this.assuntoApalestrar = assuntoApalestrar;
-        this.palestrasAministrar = palestrasAministrar;
     }
 
     @Override
     public String toString() {
-        return null;
-    }
-
-    public List<Palestra> getPalestrasAministrar() {
-        return palestrasAministrar;
-    }
-
-    public void setPalestrasAministrar(List<Palestra> palestrasAministrar) {
-        this.palestrasAministrar = palestrasAministrar;
+        return String.format("Palestrante: %s - Assunto a palestrar: %s. Contatos: %s - %s",
+                this.getNome(),
+                this.assuntoApalestrar,
+                this.getEmail(),
+                this.getTelefone());
     }
 }
