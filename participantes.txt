@@ -1,10 +1,7 @@
 I;Elvis;elvis.at@teste.com;(21)91234-1234;
-I;Elvis;elvis.at@teste.com;(21)91234-1234;
-I;Elvis;elvis.at@teste.com;(21)91234-1234;
-I;Elvis;elvis.at@teste.com;(21)91234-1234;
-I;Elvis;elvis.at@teste.com;(21)91234-1234;
-I;Elvis;elvis.at@teste.com;(21)91234-1234;
-I;Elvis;elvis.at@teste.com;(21)91234-1234;
-I;Elvis;elvis.at@teste.com;(21)91234-1234;
-I;Elvis;elvis.at@teste.com;(21)91234-1234;
-I;Elvis;elvis.at@teste.com;(21)91234-1234;
+II;José;jose.at@teste.com;(21)91212-3333;"Java básico";
+I;Elbeth;elbert.prof@teste.com;(21)9999-1111;
+III;Luana;luana.at@teste.com;(21)99134-0987;"Java avançado";
+III;Maria;maria.at@teste.com;(21)98823-8761;"Java e WEB";
+V;Elvis;elvis.at@teste.com;(21)91234-1234;
+III;João;joão.at@teste.com;(21)99143-7652;"Java e SQL";
