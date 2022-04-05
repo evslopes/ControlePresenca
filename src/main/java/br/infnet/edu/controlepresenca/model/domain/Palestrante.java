@@ -4,11 +4,28 @@ import br.infnet.edu.controlepresenca.exceptions.EmailInvalidoException;
 import br.infnet.edu.controlepresenca.exceptions.NomeInvalidoException;
 import br.infnet.edu.controlepresenca.exceptions.TelefoneInvalidoException;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Palestrante extends Participante {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Integer id;
 
     private String assuntoApalestrar;
+
+    public Palestrante() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Palestrante(String nome, String email, String telefone, String assuntoApalestrar) throws NomeInvalidoException, EmailInvalidoException, TelefoneInvalidoException {
 

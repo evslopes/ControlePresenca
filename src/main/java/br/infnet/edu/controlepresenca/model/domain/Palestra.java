@@ -2,14 +2,33 @@ package br.infnet.edu.controlepresenca.model.domain;
 
 import br.infnet.edu.controlepresenca.exceptions.NomeInvalidoException;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+@Entity
 public class Palestra {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Integer id;
+
     private String nome;
     private String assunto;
     private LocalDateTime inicioPalestra;
     private LocalDateTime fimPalestra;
+
+    public Palestra() {
+
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Palestra(String nome, String assunto, LocalDateTime inicioPalestra, LocalDateTime fimPalestra) throws NomeInvalidoException {
 

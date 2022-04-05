@@ -3,16 +3,33 @@ package br.infnet.edu.controlepresenca.model.domain;
 import br.infnet.edu.controlepresenca.exceptions.EventoSemPalestrasException;
 import br.infnet.edu.controlepresenca.exceptions.EventoSemParticipantesException;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-
+@Entity
 public class Evento {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Integer id;
 
     private String nome;
     private LocalDateTime dataInicio;
+    @OneToMany
+    @JoinColumn(name = "idParticipante")
     private List<Participante> participantes;
+    @OneToMany
+    @JoinColumn(name = "idPalestra")
     private List<Palestra> palestras;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Evento() {
 

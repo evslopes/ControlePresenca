@@ -4,11 +4,32 @@ import br.infnet.edu.controlepresenca.exceptions.CpnjInvalidoException;
 import br.infnet.edu.controlepresenca.exceptions.EventoInvalidoException;
 import br.infnet.edu.controlepresenca.exceptions.NomeInvalidoException;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
 public class Empresa {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Integer id;
 
     private String nome;
     private String cpnj;
-    private Evento evento;
+    @OneToMany
+    private List<Evento> eventos;
+
+    public Empresa() {
+
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Empresa(String nome, String cpnj, Evento evento) throws NomeInvalidoException, CpnjInvalidoException, EventoInvalidoException {
 
@@ -26,7 +47,7 @@ public class Empresa {
 
         this.nome = nome;
         this.cpnj = cpnj;
-        this.evento = evento;
+        this.eventos = getEventos();
     }
 
     @Override
@@ -34,7 +55,7 @@ public class Empresa {
         return "Empresa{" +
                 "nome='" + nome + '\'' +
                 ", cpnj='" + cpnj + '\'' +
-                ", evento=" + evento +
+                ", evento=" + getEventos() +
                 '}';
     }
 
@@ -54,11 +75,11 @@ public class Empresa {
         this.cpnj = cpnj;
     }
 
-    public Evento getEvento() {
-        return evento;
+    public List<Evento> getEventos() {
+        return eventos;
     }
 
-    public void setEvento(Evento evento) {
-        this.evento = evento;
+    public void setEventos(List<Evento> eventos) {
+        this.eventos = eventos;
     }
 }
