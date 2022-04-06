@@ -15,11 +15,11 @@ public class EmpresaService {
     @Autowired
     private EmpresaRepository empresaRepository;
 
-//    public Collection<Empresa> obterLista(Usuario usuario) {
-//        return (Collection<Empresa>) empresaRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
-//    }
-//    public Collection<Empresa> obterLista() {
-//        return (Collection<Empresa>) empresaRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
-//    }
+    public Collection<Empresa> obterLista(Usuario usuario) {
+        return (Collection<Empresa>) empresaRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
+    }
+    public Collection<Empresa> obterLista() {
+        return (Collection<Empresa>) empresaRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
+    }
 
 }

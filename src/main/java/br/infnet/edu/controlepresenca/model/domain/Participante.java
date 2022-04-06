@@ -16,6 +16,9 @@ public abstract class Participante {
     private String nome;
     private String email;
     private String telefone;
+    @ManyToOne
+    @JoinColumn(name = "idusuario")
+    private Usuario usuario;
 
     public Participante() {
 
@@ -72,5 +75,13 @@ public abstract class Participante {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

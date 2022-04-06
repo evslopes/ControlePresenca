@@ -5,6 +5,7 @@ import br.infnet.edu.controlepresenca.exceptions.NomeInvalidoException;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Entity
 public class Palestra {
@@ -17,6 +18,9 @@ public class Palestra {
     private String assunto;
     private LocalDateTime inicioPalestra;
     private LocalDateTime fimPalestra;
+    @ManyToOne
+    @JoinColumn(name = "idusuario")
+    private Usuario usuario;
 
     public Palestra() {
 
@@ -81,7 +85,4 @@ public class Palestra {
         return fimPalestra;
     }
 
-    public void setFimPalestra(LocalDateTime fimPalestra) {
-        this.fimPalestra = fimPalestra;
-    }
 }

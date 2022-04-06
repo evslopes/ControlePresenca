@@ -36,13 +36,13 @@ public class AcessoController {
     @GetMapping(value = "/")
     public String telaHome(Model model) {
 
-//        Map<String, Integer> appMapa = new HashMap<String, Integer>();
-//        appMapa.put("Usuário", usuarioService.obterQtde());
-//        appMapa.put("Evento", eventoService.obterQtde());
-//        appMapa.put("Organizador", organizadorService.obterQtde());
-//        appMapa.put("Participantes", participanteService.obterQtde());
-//
-//        model.addAttribute("mapa", appMapa);
+        Map<String, Integer> appMapa = new HashMap<String, Integer>();
+        appMapa.put("Usuário", usuarioService.obterQtde());
+        appMapa.put("Evento", eventoService.obterQtde());
+        appMapa.put("Organizador", organizadorService.obterQtde());
+        appMapa.put("Participantes", participanteService.obterQtde());
+
+        model.addAttribute("mapa", appMapa);
 
         return "index";
     }

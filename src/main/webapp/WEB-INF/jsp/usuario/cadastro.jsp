@@ -25,7 +25,7 @@
 <section class="page-section" id="contact">
     <div class="container">
         <!-- Contact Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Cadastro</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Cadastro de Usuários</h2>
         <!-- Icon Divider-->
         <div class="divider-custom">
             <div class="divider-custom-line"></div>

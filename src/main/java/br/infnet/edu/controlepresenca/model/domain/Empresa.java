@@ -16,6 +16,11 @@ public class Empresa {
 
     private String nome;
     private String cpnj;
+
+    @ManyToOne
+    @JoinColumn(name = "idusuario")
+    private Usuario usuario;
+
     @OneToMany
     private List<Evento> eventos;
 
@@ -81,5 +86,13 @@ public class Empresa {
 
     public void setEventos(List<Evento> eventos) {
         this.eventos = eventos;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

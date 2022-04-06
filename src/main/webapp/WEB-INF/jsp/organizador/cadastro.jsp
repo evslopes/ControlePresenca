@@ -25,21 +25,14 @@
 <section class="page-section" id="contact">
     <div class="container">
         <!-- Contact Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Login</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Cadastro de Organizadores</h2>
         <!-- Icon Divider-->
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
             <div class="divider-custom-line"></div>
         </div>
-
-        <c:if test="${not empty mensagem}">
-            <div class="alert alert-warning">
-                <strong>Atenção!</strong> ${mensagem}
-            </div>
-        </c:if>
-
-        <!-- Login Section Form-->
+        <!-- Contact Section Form-->
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-7">
                 <!-- * * * * * * * * * * * * * * *-->
@@ -49,7 +42,13 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                <form action="/login" method="post" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <form action="/organizador/incluir" method="post" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" name="nome" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                        <label for="name">Nome</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                    </div>
                     <!-- Email address input-->
                     <div class="form-floating mb-3">
                         <input class="form-control" name="email" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
@@ -58,15 +57,24 @@
                         <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                     </div>
 
-                    <!-- Message senha-->
+                    <!-- Email address input-->
                     <div class="form-floating mb-3">
-                        <div class="mb-3 row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                            <div class="form-control col-sm-10">
-                                <input type="password" name="senha" class="form-control" id="inputPassword">
-                            </div>
-                        </div><div class="invalid-feedback" data-sb-feedback="message:required">A senha é necessária</div>
+                        <input class="form-control" name="telefone" id="telefone" type="phone" placeholder="xx xxxx-xxxx" data-sb-validations="required,phone" />
+                        <label for="telefone">Telefone</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone:required">An telefone is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="phone:email">telefone is not valid.</div>
                     </div>
+
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" name="assunto" id="assunto" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                        <label for="name">Assunto a palestrar</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">Assunto is required.</div>
+                    </div>
+
+
+
+
                     <!-- Submit success message-->
                     <!---->
                     <!-- This is what your users will see when the form-->

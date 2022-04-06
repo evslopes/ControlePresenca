@@ -16,6 +16,12 @@ public class Evento {
 
     private String nome;
     private LocalDateTime dataInicio;
+
+    @ManyToOne
+    @JoinColumn(name = "idusuario")
+    private Usuario usuario;
+
+
     @OneToMany
     @JoinColumn(name = "idParticipante")
     private List<Participante> participantes;
@@ -125,5 +131,13 @@ public class Evento {
 
     public void setPalestras(List<Palestra> palestras) {
         this.palestras = palestras;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
