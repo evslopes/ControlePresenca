@@ -67,6 +67,15 @@
                         </div><div class="invalid-feedback" data-sb-feedback="message:required">A senha é necessária</div>
                     </div>
 
+<%--                    <div class="input-group mb-3">--%>
+<%--                        <div class="input-group-text">--%>
+<%--                            <input class="form-check-input mt-0" name="admin" type="checkbox" value="true" aria-label="Administrador true">--%>
+<%--                             --%>
+<%--                        </div>--%>
+<%--                        <div class="input-group-text">--%>
+<%--                            <input class="form-check-input mt-0" name="admin" type="checkbox" value="false" aria-label="Administrador false">--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
 
                     <!-- Submit success message-->
