@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class EventoService {
@@ -26,8 +27,8 @@ public class EventoService {
         return eventoRepository.findById(id).orElse(null);
     }
 
-    public Collection<Evento> obterLista(Usuario usuario) {
-        return (Collection<Evento>) eventoRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
+    public List<Evento> obterLista(Usuario usuario) {
+        return (List<Evento>) eventoRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
     }
 
     public Collection<Evento> obterLista() {

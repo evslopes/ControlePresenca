@@ -1,5 +1,6 @@
 package br.infnet.edu.controlepresenca.model.service;
 
+import br.infnet.edu.controlepresenca.model.domain.Organizador;
 import br.infnet.edu.controlepresenca.model.domain.Ouvinte;
 import br.infnet.edu.controlepresenca.model.domain.Usuario;
 import br.infnet.edu.controlepresenca.model.repository.OuvinteRepository;
@@ -14,6 +15,10 @@ public class OuvinteService {
 
     @Autowired
     private OuvinteRepository ouvinteRepository;
+
+    public void incluir(Ouvinte ouvinte) {
+        ouvinteRepository.save(ouvinte);
+    }
 
     public Collection<Ouvinte> obterLista(Usuario usuario) {
         return (Collection<Ouvinte>) ouvinteRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));

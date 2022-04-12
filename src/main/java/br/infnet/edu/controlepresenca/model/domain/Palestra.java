@@ -22,6 +22,7 @@ public class Palestra {
     @JoinColumn(name = "idusuario")
     private Usuario usuario;
 
+
     public Palestra() {
 
     }
@@ -83,6 +84,18 @@ public class Palestra {
 
     public LocalDateTime getFimPalestra() {
         return fimPalestra;
+    }
+
+    public void setFimPalestra(LocalDateTime fimPalestra) {
+        this.fimPalestra = fimPalestra;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
 }

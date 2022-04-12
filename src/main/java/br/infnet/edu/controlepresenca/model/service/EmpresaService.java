@@ -1,6 +1,7 @@
 package br.infnet.edu.controlepresenca.model.service;
 
 import br.infnet.edu.controlepresenca.model.domain.Empresa;
+import br.infnet.edu.controlepresenca.model.domain.Evento;
 import br.infnet.edu.controlepresenca.model.domain.Usuario;
 import br.infnet.edu.controlepresenca.model.repository.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,10 @@ public class EmpresaService {
 
     @Autowired
     private EmpresaRepository empresaRepository;
+
+    public void incluir(Empresa empresa) {
+        empresaRepository.save(empresa);
+    }
 
     public Collection<Empresa> obterLista(Usuario usuario) {
         return (Collection<Empresa>) empresaRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));

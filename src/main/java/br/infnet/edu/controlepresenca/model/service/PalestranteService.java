@@ -1,5 +1,6 @@
 package br.infnet.edu.controlepresenca.model.service;
 
+import br.infnet.edu.controlepresenca.model.domain.Ouvinte;
 import br.infnet.edu.controlepresenca.model.domain.Palestrante;
 import br.infnet.edu.controlepresenca.model.domain.Usuario;
 import br.infnet.edu.controlepresenca.model.repository.PalestranteRepository;
@@ -8,16 +9,22 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class PalestranteService {
     @Autowired
     private PalestranteRepository palestranteRepository;
 
-    public Collection<Palestrante> obterLista(Usuario usuario) {
-        return (Collection<Palestrante>) palestranteRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
+    public void incluir(Palestrante palestrante) {
+        palestranteRepository.save(palestrante);
     }
-    public Collection<Palestrante> obterLista() {
-        return (Collection<Palestrante>) palestranteRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
+
+
+    public List<Palestrante> obterLista(Usuario usuario) {
+        return (List<Palestrante>)  palestranteRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
+    }
+    public List<Palestrante> obterLista() {
+        return (List<Palestrante>) palestranteRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
     }
 }
