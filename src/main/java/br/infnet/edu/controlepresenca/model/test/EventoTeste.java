@@ -20,7 +20,7 @@ public class EventoTeste {
         Palestrante testePalestrante = new Palestrante("Elvis", "teste@test.com", "(21)91234-1231", "Java Básico");
         Palestra testePalestra = new Palestra("Java básico",
                 "JAVA",
-                LocalDateTime.now(), LocalDateTime.now());
+                LocalDateTime.now().toString(), LocalDateTime.now().toString());
         Ouvinte testeOuvinte = new Ouvinte("Elvis", "teste@test.com", "(21)91234-1231", "Java Básico");
 
         //preenchendo as listas
@@ -32,7 +32,7 @@ public class EventoTeste {
         //criando evento e populando
         Evento eventoTeste = new Evento();
         eventoTeste.setNome("AT JAVA");
-        eventoTeste.setDataInicio(LocalDateTime.now());
+        eventoTeste.setDataInicio(LocalDateTime.now().toString());
         eventoTeste.setParticipantes(listaParticipantes);
         eventoTeste.setPalestras(listaPalestras);
 

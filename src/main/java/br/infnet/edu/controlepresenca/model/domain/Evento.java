@@ -3,16 +3,39 @@ package br.infnet.edu.controlepresenca.model.domain;
 import br.infnet.edu.controlepresenca.exceptions.EventoSemPalestrasException;
 import br.infnet.edu.controlepresenca.exceptions.EventoSemParticipantesException;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-
+@Entity
 public class Evento {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Integer id;
 
     private String nome;
-    private LocalDateTime dataInicio;
+    private String dataInicio;
+
+    @ManyToOne
+    @JoinColumn(name = "idusuario")
+    private Usuario usuario;
+
+
+    @OneToMany
+    @JoinColumn(name = "idParticipante")
     private List<Participante> participantes;
+    @OneToMany
+    @JoinColumn(name = "idPalestra")
     private List<Palestra> palestras;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Evento() {
 
@@ -23,12 +46,11 @@ public class Evento {
 
     @Override
     public String toString() {
-
-        DateTimeFormatter formatacao = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-
-        return String.format("%s;%s",
-                this.nome,
-                this.dataInicio.format(formatacao));
+        return "Evento{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", dataInicio='" + dataInicio + '\'' +
+                '}';
     }
 
     public void impressaoParticipantes()  throws EventoSemParticipantesException {
@@ -86,13 +108,6 @@ public class Evento {
         this.nome = nome;
     }
 
-    public LocalDateTime getDataInicio() {
-        return dataInicio;
-    }
-
-    public void setDataInicio(LocalDateTime dataInicio) {
-        this.dataInicio = dataInicio;
-    }
 
     public List<Participante> getParticipantes() {
         return participantes;
@@ -108,5 +123,21 @@ public class Evento {
 
     public void setPalestras(List<Palestra> palestras) {
         this.palestras = palestras;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(String dataInicio) {
+        this.dataInicio = dataInicio;
     }
 }

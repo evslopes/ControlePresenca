@@ -10,7 +10,7 @@ public class PalestraTeste {
         try {
             Palestra testePalestra = new Palestra("Java básico",
                     "JAVA",
-                    LocalDateTime.now(), LocalDateTime.now());
+                    LocalDateTime.now().toString(), LocalDateTime.now().toString());
             System.out.println(testePalestra);
         } catch (NomeInvalidoException e) {
             e.printStackTrace();
@@ -19,7 +19,7 @@ public class PalestraTeste {
         try {
             Palestra testePalestra2 = new Palestra(null,
                     "JAVA",
-                    LocalDateTime.now(), LocalDateTime.now());
+                    LocalDateTime.now().toString(), LocalDateTime.now().toString());
             System.out.println(testePalestra2);
         } catch (NomeInvalidoException e) {
             e.printStackTrace();

@@ -4,10 +4,33 @@ import br.infnet.edu.controlepresenca.exceptions.EmailInvalidoException;
 import br.infnet.edu.controlepresenca.exceptions.NomeInvalidoException;
 import br.infnet.edu.controlepresenca.exceptions.TelefoneInvalidoException;
 
+import javax.persistence.*;
+
+@Entity
 public abstract class Participante {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Integer id;
+
     private String nome;
     private String email;
     private String telefone;
+    @ManyToOne
+    @JoinColumn(name = "idusuario")
+    private Usuario usuario;
+
+    public Participante() {
+
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Participante(String nome, String email, String telefone) throws NomeInvalidoException, EmailInvalidoException, TelefoneInvalidoException {
 
@@ -52,5 +75,13 @@ public abstract class Participante {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
