@@ -23,7 +23,7 @@ public class UsuarioLoader implements ApplicationRunner {
 
         Usuario usuario = null;
 
-//        usuario = usuarioService.autenticacao(email, senha);
+        usuario = usuarioService.autenticacao(email, senha);
 
         if(usuario == null) {
 

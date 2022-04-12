@@ -67,9 +67,9 @@
 
                     <!-- Name input-->
                     <div class="form-floating mb-3">
-                        <input class="form-control" name="assunto" id="assunto" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                        <label for="name">Palestra</label>
-                        <div class="invalid-feedback" data-sb-feedback="name:required">Palestra is required.</div>
+                        <input class="form-control" name="interesses" id="interesses" type="text" placeholder="Enter your interesses..." data-sb-validations="required" />
+                        <label for="name">Interesses</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">Interesses is required.</div>
                     </div>
 
 

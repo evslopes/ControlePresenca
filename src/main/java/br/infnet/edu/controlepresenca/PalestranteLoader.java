@@ -30,6 +30,7 @@ public class PalestranteLoader implements ApplicationRunner {
         String nome = "Elbeth";
         String email = "Elbeth@Elbeth.com";
         String telefone = "(21) 99999-9999";
+        String assunto = "Java";
 
         Palestrante palestrante = null;
 
@@ -39,6 +40,7 @@ public class PalestranteLoader implements ApplicationRunner {
             palestrante.setNome(nome);
             palestrante.setEmail(email);
             palestrante.setTelefone(telefone);
+            palestrante.setAssunto(assunto);
             palestrante.setUsuario(usuarioService.obterPorId(1));
             palestranteService.incluir(palestrante);
         }

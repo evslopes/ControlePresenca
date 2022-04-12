@@ -19,7 +19,7 @@ public class EmpresaController {
     @Autowired
     private EventoService eventoService;
 
-    @GetMapping(value = "/empresa")
+    @GetMapping(value = "/empresas")
     public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 
         model.addAttribute("empresaLista", empresaService.obterLista(usuario));
@@ -27,39 +27,39 @@ public class EmpresaController {
         return "empresa/lista";
     }
 
-    @GetMapping(value = "/empresas")
+    @GetMapping(value = "/empresa")
     public String telaCadastro() {
         return "empresa/cadastro";
     }
-//
-//    @PostMapping(value = "/empresa/incluir")
-//    public String incluir(Model model, Empresa empresa, @SessionAttribute("user") Usuario usuario) {
-//
-//        empresa.setUsuario(usuario);
-//
-//        eventoService.incluir(empresa);
-//
-//        model.addAttribute("mensagem", "A empresa " + empresa.getNome() + " foi incluída com sucesso!!!");
-//
-//        return telaLista(model, usuario);
-//    }
-//
-//    @GetMapping(value = "/empresa/{id}/excluir")
-//    public String excluir(Model model, @PathVariable Integer id, @SessionAttribute("user") Usuario usuario) {
-//
-//        Empresa empresa = (Empresa) eventoService.obterPorId(id);
-//
-//        if(empresa != null) {
-//            try {
-//                eventoService.excluir(id);
-//                model.addAttribute("mensagem", "A empresa "+empresa.getNome()+" foi excluída com sucesso!!!");
-//            } catch (Exception e) {
-//                model.addAttribute("mensagem", "Impossível realizar a exclusão! A empresa "+empresa.getNome()+" está associada a um pedido!!!");
-//            }
-//        } else {
-//            model.addAttribute("mensagem", "Empresa inexistente.. impossível realizar a exclusão!!!");
-//        }
-//
-//        return telaLista(model, usuario);
-//    }
+
+    @PostMapping(value = "/empresa/incluir")
+    public String incluir(Model model, Empresa empresa, @SessionAttribute("user") Usuario usuario) {
+
+        empresa.setUsuario(usuario);
+
+        empresaService.incluir(empresa);
+
+        model.addAttribute("mensagem", "A empresa " + empresa.getNome() + " foi incluída com sucesso!!!");
+
+        return telaLista(model, usuario);
+    }
+
+    @GetMapping(value = "/empresa/{id}/excluir")
+    public String excluir(Model model, @PathVariable Integer id, @SessionAttribute("user") Usuario usuario) {
+
+        Empresa empresa = (Empresa) empresaService.obterPorId(id);
+
+        if(empresa != null) {
+            try {
+                empresaService.excluir(id);
+                model.addAttribute("mensagem", "A empresa "+empresa.getNome()+" foi excluída com sucesso!!!");
+            } catch (Exception e) {
+                model.addAttribute("mensagem", "Impossível realizar a exclusão! A empresa "+empresa.getNome()+" está associada a um pedido!!!");
+            }
+        } else {
+            model.addAttribute("mensagem", "Empresa inexistente.. impossível realizar a exclusão!!!");
+        }
+
+        return telaLista(model, usuario);
+    }
 }

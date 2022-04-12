@@ -19,7 +19,7 @@ public class OrganizadorController {
     @Autowired
     private ParticipanteService participanteService;
 
-    @GetMapping(value = "/organizador")
+    @GetMapping(value = "/organizadores")
     public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 
         model.addAttribute("organizadorLista", organizadorService.obterLista(usuario));
@@ -27,7 +27,7 @@ public class OrganizadorController {
         return "organizador/lista";
     }
 
-    @GetMapping(value = "/organizadores")
+    @GetMapping(value = "/organizador")
     public String telaCadastro() {
         return "organizador/cadastro";
     }
@@ -37,7 +37,7 @@ public class OrganizadorController {
 
         organizador.setUsuario(usuario);
 
-        participanteService.incluir(organizador);
+        organizadorService.incluir(organizador);
 
         model.addAttribute("mensagem", "O organizador " + organizador.getNome() + " foi incluído com sucesso!!!");
 
@@ -47,7 +47,7 @@ public class OrganizadorController {
     @GetMapping(value = "/organizador/{id}/excluir")
     public String excluir(Model model, @PathVariable Integer id, @SessionAttribute("user") Usuario usuario) {
 
-        Organizador organizador = (Organizador) participanteService.obterPorId(id);
+        Organizador organizador = (Organizador) organizadorService.obterPorId(id);
 
         if(organizador != null) {
             try {

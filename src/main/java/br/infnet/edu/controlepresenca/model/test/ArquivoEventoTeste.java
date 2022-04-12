@@ -28,7 +28,7 @@ public class ArquivoEventoTeste {
 
             Evento evento = new Evento();
             evento.setNome("Assessment Fundamentos de desenvolvimento JAVA");
-            evento.setDataInicio(LocalDateTime.now());
+            evento.setDataInicio(LocalDateTime.now().toString());
 
             while (linha != null){
                 campos = linha.split(";");

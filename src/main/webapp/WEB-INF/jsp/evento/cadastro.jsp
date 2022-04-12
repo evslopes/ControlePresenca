@@ -52,16 +52,9 @@
 
                     <!-- Name input-->
                     <div class="form-floating mb-3">
-                        <input class="form-control" name="palestra" id="palestra" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                        <label for="name">Palestras</label>
-                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                    </div>
-
-                    <!-- Name input-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" name="participante" id="participante" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                        <label for="name">Palestras</label>
-                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        <input class="form-control" name="dataInicio" id="datainicio" type="datetime-local" placeholder="Enter the date..." data-sb-validations="required" />
+                        <label for="name">Data de inicio</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A date is required.</div>
                     </div>
 
                     <!-- Submit success message-->

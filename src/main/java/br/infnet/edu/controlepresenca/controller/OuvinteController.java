@@ -20,7 +20,7 @@ public class OuvinteController {
     @Autowired
     private ParticipanteService participanteService;
 
-    @GetMapping(value = "/ouvinte")
+    @GetMapping(value = "/ouvintes")
     public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 
         model.addAttribute("ouvinteLista", ouvinteService.obterLista(usuario));
@@ -28,7 +28,7 @@ public class OuvinteController {
         return "ouvinte/lista";
     }
 
-    @GetMapping(value = "/ouvintes")
+    @GetMapping(value = "/ouvinte")
     public String telaCadastro() {
         return "ouvinte/cadastro";
     }
@@ -38,7 +38,7 @@ public class OuvinteController {
 
         ouvinte.setUsuario(usuario);
 
-        participanteService.incluir(ouvinte);
+        ouvinteService.incluir(ouvinte);
 
         model.addAttribute("mensagem", "O ouvinte " + ouvinte.getNome() + " foi incluído com sucesso!!!");
 
@@ -48,7 +48,7 @@ public class OuvinteController {
     @GetMapping(value = "/ouvinte/{id}/excluir")
     public String excluir(Model model, @PathVariable Integer id, @SessionAttribute("user") Usuario usuario) {
 
-        Ouvinte ouvinte = (Ouvinte) participanteService.obterPorId(id);
+        Ouvinte ouvinte = (Ouvinte) ouvinteService.obterPorId(id);
 
         if(ouvinte != null) {
             try {

@@ -20,6 +20,14 @@ public class EmpresaService {
         empresaRepository.save(empresa);
     }
 
+    public void excluir(Integer id) {
+        empresaRepository.deleteById(id);
+    }
+
+    public Empresa obterPorId(Integer id) {
+        return empresaRepository.findById(id).orElse(null);
+    }
+
     public Collection<Empresa> obterLista(Usuario usuario) {
         return (Collection<Empresa>) empresaRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
     }

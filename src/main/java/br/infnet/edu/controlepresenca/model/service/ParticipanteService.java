@@ -27,11 +27,11 @@ public class ParticipanteService {
     }
 
     public Collection<Participante> obterLista(Usuario usuario) {
-        return (Collection<Participante>) participanteRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "descricao"));
+        return (Collection<Participante>) participanteRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
     }
 
     public Collection<Participante> obterLista() {
-        return (Collection<Participante>) participanteRepository.findAll(Sort.by(Sort.Direction.ASC, "descricao"));
+        return (Collection<Participante>) participanteRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
     }
 
     public Integer obterQtde(){

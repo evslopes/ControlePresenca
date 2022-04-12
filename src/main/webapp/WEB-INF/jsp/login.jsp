@@ -33,15 +33,15 @@
             <div class="divider-custom-line"></div>
         </div>
 
-        <c:if test="${not empty mensagem}">
-            <div class="alert alert-warning">
-                <strong>Atenção!</strong> ${mensagem}
-            </div>
-        </c:if>
-
         <!-- Login Section Form-->
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-7">
+
+                <c:if test="${not empty mensagem}">
+                    <div class="alert alert-warning">
+                        <strong>Atenção!</strong> ${mensagem}
+                    </div>
+                </c:if>
                 <!-- * * * * * * * * * * * * * * *-->
                 <!-- * * SB Forms Contact Form * *-->
                 <!-- * * * * * * * * * * * * * * *-->

@@ -38,8 +38,8 @@ public class PalestraLoader implements ApplicationRunner {
 
             palestra = new Palestra();
             palestra.setNome(nome);
-            palestra.setInicioPalestra(LocalDateTime.now());
-            palestra.setFimPalestra(LocalDateTime.now().plusHours(2));
+            palestra.setInicioPalestra(LocalDateTime.now().toString());
+            palestra.setFimPalestra(LocalDateTime.now().plusHours(2).toString());
             palestra.setAssunto("Desenvolvimento de Java para Web");
             palestra.setUsuario(usuarioService.obterPorId(1));
 

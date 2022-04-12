@@ -31,7 +31,7 @@ public class EventoController {
     }
 
     @PostMapping(value = "/evento/incluir")
-    public String incluir(Evento evento, Model model, @SessionAttribute("user") Usuario usuario){
+    public String incluir(Evento evento, Model model, @SessionAttribute("user") Usuario usuario) {
 
         evento.setUsuario(usuario);
 

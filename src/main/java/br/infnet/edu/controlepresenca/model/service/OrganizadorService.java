@@ -1,5 +1,6 @@
 package br.infnet.edu.controlepresenca.model.service;
 
+import br.infnet.edu.controlepresenca.model.domain.Empresa;
 import br.infnet.edu.controlepresenca.model.domain.Evento;
 import br.infnet.edu.controlepresenca.model.domain.Organizador;
 import br.infnet.edu.controlepresenca.model.domain.Usuario;
@@ -18,6 +19,10 @@ public class OrganizadorService {
 
     public void incluir(Organizador organizador) {
         organizadorRepository.save(organizador);
+    }
+
+    public Organizador obterPorId(Integer id) {
+        return organizadorRepository.findById(id).orElse(null);
     }
 
     public Collection<Organizador> obterLista(Usuario usuario) {

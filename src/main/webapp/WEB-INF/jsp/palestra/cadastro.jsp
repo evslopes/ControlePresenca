@@ -42,32 +42,34 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                <form action="/usuario/incluir" method="post" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <form action="/palestra/incluir" method="post" id="contactForm" data-sb-form-api-token="API_TOKEN">
                     <!-- Name input-->
                     <div class="form-floating mb-3">
                         <input class="form-control" name="nome" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                         <label for="name">Nome</label>
                         <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                     </div>
-                    <!-- Email address input-->
+
+                    <!-- Name input-->
                     <div class="form-floating mb-3">
-                        <input class="form-control" name="email" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                        <label for="email">Email address</label>
-                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                        <input class="form-control" name="assunto" id="assunto" type="text" placeholder="Enter your assunto..." data-sb-validations="required" />
+                        <label for="name">Assunto</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A assunto is required.</div>
                     </div>
 
-                    <!-- Message senha-->
+                    <!-- Name input-->
                     <div class="form-floating mb-3">
-                        <div class="mb-3 row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                            <div class="form-control col-sm-10">
-                                <input type="password" name="senha" class="form-control" id="inputPassword">
-                            </div>
-                        </div><div class="invalid-feedback" data-sb-feedback="message:required">A senha é necessária</div>
+                        <input class="form-control" name="inicioPalestra" id="iniciopalestra" type="datetime-local" placeholder="Enter the date..." data-sb-validations="required" />
+                        <label for="name">Data de inicio</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A date is required.</div>
                     </div>
 
-
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" name="fimPalestra" id="fimfalestra" type="datetime-local" placeholder="Enter the date..." data-sb-validations="required" />
+                        <label for="name">Data de Fim</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A date is required.</div>
+                    </div>
 
                     <!-- Submit success message-->
                     <!---->

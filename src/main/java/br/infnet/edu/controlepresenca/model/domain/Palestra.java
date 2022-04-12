@@ -16,8 +16,8 @@ public class Palestra {
 
     private String nome;
     private String assunto;
-    private LocalDateTime inicioPalestra;
-    private LocalDateTime fimPalestra;
+    private String inicioPalestra;
+    private String fimPalestra;
     @ManyToOne
     @JoinColumn(name = "idusuario")
     private Usuario usuario;
@@ -35,7 +35,7 @@ public class Palestra {
         this.id = id;
     }
 
-    public Palestra(String nome, String assunto, LocalDateTime inicioPalestra, LocalDateTime fimPalestra) throws NomeInvalidoException {
+    public Palestra(String nome, String assunto, String inicioPalestra, String fimPalestra) throws NomeInvalidoException {
 
         if(nome == null) {
             throw new NomeInvalidoException("O nome da palestra está nulo!");
@@ -49,13 +49,13 @@ public class Palestra {
     @Override
     public String toString() {
 
-        DateTimeFormatter formatacao = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+//        DateTimeFormatter formatacao = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
         return String.format("Palestra: %s,assunto: %s,iníco: %s,fim: %s",
                 getAssunto(),
                 getNome(),
-                getInicioPalestra().format(formatacao),
-                getFimPalestra().format(formatacao));
+                getInicioPalestra(),
+                getFimPalestra());
     }
 
     public String getNome() {
@@ -74,19 +74,19 @@ public class Palestra {
         this.assunto = assunto;
     }
 
-    public LocalDateTime getInicioPalestra() {
+    public String getInicioPalestra() {
         return inicioPalestra;
     }
 
-    public void setInicioPalestra(LocalDateTime inicioPalestra) {
+    public void setInicioPalestra(String inicioPalestra) {
         this.inicioPalestra = inicioPalestra;
     }
 
-    public LocalDateTime getFimPalestra() {
+    public String getFimPalestra() {
         return fimPalestra;
     }
 
-    public void setFimPalestra(LocalDateTime fimPalestra) {
+    public void setFimPalestra(String fimPalestra) {
         this.fimPalestra = fimPalestra;
     }
 

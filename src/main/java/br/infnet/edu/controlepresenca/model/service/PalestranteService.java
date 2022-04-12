@@ -20,6 +20,9 @@ public class PalestranteService {
         palestranteRepository.save(palestrante);
     }
 
+    public Palestrante obterPorId(Integer id) {
+        return palestranteRepository.findById(id).orElse(null);
+    }
 
     public List<Palestrante> obterLista(Usuario usuario) {
         return (List<Palestrante>)  palestranteRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));

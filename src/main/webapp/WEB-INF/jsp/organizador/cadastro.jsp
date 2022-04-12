@@ -65,16 +65,6 @@
                         <div class="invalid-feedback" data-sb-feedback="phone:email">telefone is not valid.</div>
                     </div>
 
-                    <!-- Name input-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" name="assunto" id="assunto" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                        <label for="name">Assunto a palestrar</label>
-                        <div class="invalid-feedback" data-sb-feedback="name:required">Assunto is required.</div>
-                    </div>
-
-
-
-
                     <!-- Submit success message-->
                     <!---->
                     <!-- This is what your users will see when the form-->

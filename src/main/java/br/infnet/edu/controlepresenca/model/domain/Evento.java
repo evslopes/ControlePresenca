@@ -15,7 +15,7 @@ public class Evento {
     private Integer id;
 
     private String nome;
-    private LocalDateTime dataInicio;
+    private String dataInicio;
 
     @ManyToOne
     @JoinColumn(name = "idusuario")
@@ -46,12 +46,11 @@ public class Evento {
 
     @Override
     public String toString() {
-
-        DateTimeFormatter formatacao = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-
-        return String.format("%s;%s",
-                this.nome,
-                this.dataInicio.format(formatacao));
+        return "Evento{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", dataInicio='" + dataInicio + '\'' +
+                '}';
     }
 
     public void impressaoParticipantes()  throws EventoSemParticipantesException {
@@ -109,13 +108,6 @@ public class Evento {
         this.nome = nome;
     }
 
-    public LocalDateTime getDataInicio() {
-        return dataInicio;
-    }
-
-    public void setDataInicio(LocalDateTime dataInicio) {
-        this.dataInicio = dataInicio;
-    }
 
     public List<Participante> getParticipantes() {
         return participantes;
@@ -139,5 +131,13 @@ public class Evento {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public String getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(String dataInicio) {
+        this.dataInicio = dataInicio;
     }
 }

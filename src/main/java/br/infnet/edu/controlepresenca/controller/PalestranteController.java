@@ -19,7 +19,7 @@ public class PalestranteController {
     @Autowired
     private ParticipanteService participanteService;
 
-    @GetMapping(value = "/palestrante")
+    @GetMapping(value = "/palestrantes")
     public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 
         model.addAttribute("palestranteLista", palestranteService.obterLista(usuario));
@@ -27,7 +27,7 @@ public class PalestranteController {
         return "palestrante/lista";
     }
 
-    @GetMapping(value = "/palestrantes")
+    @GetMapping(value = "/palestrante")
     public String telaCadastro() {
         return "palestrante/cadastro";
     }
@@ -37,7 +37,7 @@ public class PalestranteController {
 
         palestrante.setUsuario(usuario);
 
-        participanteService.incluir(palestrante);
+        palestranteService.incluir(palestrante);
 
         model.addAttribute("mensagem", "O palestrante " + palestrante.getNome() + " foi incluído com sucesso!!!");
 
@@ -47,7 +47,7 @@ public class PalestranteController {
     @GetMapping(value = "/palestrante/{id}/excluir")
     public String excluir(Model model, @PathVariable Integer id, @SessionAttribute("user") Usuario usuario) {
 
-        Palestrante palestrante = (Palestrante) participanteService.obterPorId(id);
+        Palestrante palestrante = palestranteService.obterPorId(id);
 
         if(palestrante != null) {
             try {

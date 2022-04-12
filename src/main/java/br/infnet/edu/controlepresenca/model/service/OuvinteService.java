@@ -20,6 +20,11 @@ public class OuvinteService {
         ouvinteRepository.save(ouvinte);
     }
 
+    public Ouvinte obterPorId(Integer id) {
+        return ouvinteRepository.findById(id).orElse(null);
+    }
+
+
     public Collection<Ouvinte> obterLista(Usuario usuario) {
         return (Collection<Ouvinte>) ouvinteRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
     }

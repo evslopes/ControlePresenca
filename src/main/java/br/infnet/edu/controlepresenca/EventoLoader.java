@@ -25,7 +25,7 @@ public class EventoLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 
         String nome = "Assessmento Java Web";
-        LocalDateTime dataInicio = LocalDateTime.now();
+        String dataInicio = LocalDateTime.now().toString();
 
         Evento evento = null;
 

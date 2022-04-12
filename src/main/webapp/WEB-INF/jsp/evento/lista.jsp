@@ -24,7 +24,7 @@
 <c:import url="/WEB-INF/jsp/menu.jsp"/>
 <!-- Masthead-->
 <header class="masthead bg-primary text-white text-center">
-    <div class="container d-flex align-items-center flex-column">
+    <div class="container d-flex align-items-center">
         <div class="container">
 
             <h1>Cadastramento de eventos</h1>
@@ -39,17 +39,13 @@
                 <h2>${eventoLista.size()} eventos cadastrados</h2>
             </c:if>
         </div>
+
     </div>
 </header>
 <!-- Portfolio Section-->
+
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
-
-        <c:if test="${not empty mensagem}">
-            <div class="alert alert-success">
-                <strong>Confirmação!</strong> ${mensagem}
-            </div>
-        </c:if>
 
         <c:if test="${not empty eventoLista}">
             <table class="table table-striped">
@@ -67,9 +63,7 @@
                         <td>${u.dataInicio}</td>
                         <td>
                             <c:if test="${user.admin}">
-                                <c:if test="${user.id != u.id}">
                                     <a href="/evento/${u.id}/excluir">Excluir</a>
-                                </c:if>
                             </c:if>
                         </td>
                     </tr>
@@ -82,6 +76,13 @@
         <c:if test="${empty eventoLista}">
             <p>Não existem eventos cadastrados!!!</p>
         </c:if>
+
+        <div class="d-grid gap-2">
+            <button type="button" class="btn btn-outline-primary">
+                <a class="nav-link py-3 px-0 px-lg-3 rounded" href="/evento">Cadastrar novo evento</a>
+            </button>
+        </div>
+
     </div>
 </section>
 

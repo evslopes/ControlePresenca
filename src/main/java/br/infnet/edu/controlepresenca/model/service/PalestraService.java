@@ -27,11 +27,11 @@ public class PalestraService {
     }
 
     public Collection<Palestra> obterLista(Usuario usuario) {
-        return (Collection<Palestra>) palestraRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "descricao"));
+        return (Collection<Palestra>) palestraRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "inicioPalestra"));
     }
 
     public Collection<Palestra> obterLista() {
-        return (Collection<Palestra>) palestraRepository.findAll(Sort.by(Sort.Direction.ASC, "descricao"));
+        return (Collection<Palestra>) palestraRepository.findAll(Sort.by(Sort.Direction.ASC, "inicioPalestra"));
     }
 
     public Integer obterQtde(){
